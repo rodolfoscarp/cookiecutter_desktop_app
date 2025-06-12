@@ -39,7 +39,7 @@ O objetivo deste projeto é fornecer uma estrutura básica para o desenvolviment
 ## Instruções de Uso
 
 - Instalar o cookiecutter: `pip install cookiecutter`
-- Execute: `cookiecutter https://github.com/seu-repositorio/cookiecutter-aplicativo-desktop`
+- Execute: `cookiecutter https://github.com/rodolfoscarp/cookiecutter_desktop_app.git`
 - Preencha as informações.
 - Ativar o ambiente virtual: `poetry shell`
 
