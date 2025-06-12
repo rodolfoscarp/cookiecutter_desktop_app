@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Distribution / packaging
+build/
+dist/
+
+# Environments
+venv/
+.env
+
+# PyInstaller
+*.manifest
+
+# dev
+dev/
+.vscode
+.pytest_cache/
+test.py
+
+# logs
+logs.log

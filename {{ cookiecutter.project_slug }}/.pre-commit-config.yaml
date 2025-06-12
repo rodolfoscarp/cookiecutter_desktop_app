@@ -1,0 +1,11 @@
+repos:
+  # Hook para executar taskipy.tasks
+  - repo: local # Usa um hook local, pois estamos executando um script do próprio projeto
+    hooks:
+      - id: taskipy-precommit-check
+        name: Executando verificações pre-commit com Taskipy
+        entry: poetry run task precommit_check # O comando que será executado
+        language: system # Usa o sistema Python/Poetry existente
+        types: [python] # Limita a execução a arquivos Python
+        pass_filenames: false # Não passa filenames para o comando, ele opera no projeto inteiro
+        always_run: true # Sempre executa, mesmo que nenhum arquivo Python tenha sido alterado

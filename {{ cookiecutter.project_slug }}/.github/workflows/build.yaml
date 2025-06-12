@@ -1,0 +1,37 @@
+name: Build Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+env:
+  name: {{ cookiecutter.project_slug }}
+
+jobs:
+  build-windows:
+    runs-on: windows-2019
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "{{ cookiecutter.python_version }}"
+          cache: "pip"
+      - name: Install requeriments
+        run: |
+          pip install -r requirements.txt
+      - name: Run Pyinstaller
+        run: |
+          {% raw %}set PYTHONOPTIMIZE=2 && pyinstaller ${{ env.name }}.spec{% endraw %}
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          {% raw %}
+          name: ${{ env.name }}
+          path: |
+            dist/${{ env.name }}
+          {% endraw %}

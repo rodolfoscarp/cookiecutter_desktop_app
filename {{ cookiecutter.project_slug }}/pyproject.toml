@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "{{ cookiecutter.project_slug }}"
+version = "{{ cookiecutter.version }}"
+description = "{{ cookiecutter.project_description }}"
+authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+readme = "README.MD"
+
+[tool.poetry.dependencies]
+python = ">=3.10.0,<4.0.0"
+loguru = "*"
+pyinstaller = "*"
+ttkbootstrap = "*"
+dotenv = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+taskipy = "*"
+isort = "*"
+black = "*"
+pre-commit = "*" 
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.requires-plugins]
+
+[tool.taskipy.tasks]
+test = "python -m pytest"
+black = "python -m black ."
+isort = "python -m isort ."
+format = "poetry run task black && poetry run task isort"
+freeze = "poetry export -f requirements.txt --output requirements.txt --only main --with-credentials --without-hashes"
+precommit_check = "poetry run task format && poetry run task freeze"
+build = "PYTHONOPTIMIZE=2 pyinstaller --noconfirm --clean --windowed --add-data resources:resources --splash \"resources/splash.png\" --icon \"resources/icon.ico\" --name \"{{ cookiecutter.project_slug }}\" main.py"
