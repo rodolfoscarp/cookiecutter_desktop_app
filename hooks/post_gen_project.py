@@ -111,6 +111,6 @@ except subprocess.CalledProcessError as e:
     print(f"Stderr: {e.stderr}", file=sys.stderr)
     sys.exit(1)  # Saia com erro se a instalação do hook falhar
 
-print(f"Configuração automática do projeto '{project_slug}' concluída. 🎉")
+print(f"Configuração automática do projeto '{project_slug}' concluída.")
 print("Para começar, você pode ativar o ambiente virtual com 'poetry shell'")
 print("ou executar comandos diretamente com 'poetry run <comando>'.")
