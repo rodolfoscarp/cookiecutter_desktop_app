@@ -6,7 +6,7 @@ authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
 readme = "README.MD"
 
 [tool.poetry.dependencies]
-python = ">=3.10.0,<4.0.0"
+python = ">3.12.0,<4.0.0"
 loguru = "*"
 pyinstaller = "*"
 ttkbootstrap = "*"
@@ -32,4 +32,4 @@ isort = "python -m isort ."
 format = "poetry run task black && poetry run task isort"
 freeze = "poetry export -f requirements.txt --output requirements.txt --only main --with-credentials --without-hashes"
 precommit_check = "poetry run task format && poetry run task freeze"
-build = "PYTHONOPTIMIZE=2 pyinstaller --noconfirm --clean --windowed --add-data resources:resources --splash \"resources/splash.png\" --icon \"resources/icon.ico\" --name \"{{ cookiecutter.project_slug }}\" main.py"
+build = "set PYTHONOPTIMIZE=2 pyinstaller --noconfirm --clean --windowed --add-data resources:resources --splash \"resources/splash.png\" --icon \"resources/icon.ico\" --name \"{{ cookiecutter.project_slug }}\" main.py"

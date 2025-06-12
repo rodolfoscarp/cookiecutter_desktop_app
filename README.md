@@ -8,7 +8,7 @@ O objetivo deste projeto é fornecer uma estrutura básica para o desenvolviment
 
 ## Dependências
 
-- `Python >= 3.11`
+- `Python >= 3.12`
 - Gerenciador de Pacotes: `Poetry`
 
 ### Bibliotecas utilizadas
@@ -29,6 +29,7 @@ O objetivo deste projeto é fornecer uma estrutura básica para o desenvolviment
 
 - Estrutura básica de aplicativo desktop
 - Utilização de Poetry como gerenciador de pacotes
+- Teste com Pytest
 - Logging com loguru
 - Empacotamento com pyinstaller
 - Interface gráfica com ttkbootstrap
@@ -42,6 +43,15 @@ O objetivo deste projeto é fornecer uma estrutura básica para o desenvolviment
 - Execute: `cookiecutter https://github.com/rodolfoscarp/cookiecutter_desktop_app.git`
 - Preencha as informações.
 - Ativar o ambiente virtual: `poetry shell`
+
+### Scripts
+
+Estes scripts são pré configurados utilizando a biblioteca `taskipy`.
+
+- `task pytest`: Executa os testes utilizando `Pytest`
+- `task format`: formata o codigo utilizando `black` e `isort`"
+- `task freeze`: gera o arquivo `requirements.txt` apenas com as dependencias de produção.
+- `task build`: gera o executavel utilizando `pyinstaller`
 
 ## Licença
 
